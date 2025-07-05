@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INNFERNOS Leaderboard</title>
+  <style>
+    body {
+      background-color: #1a001a;
+      color: #e6e6e6;
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      color: #9dff5b;
+    }
+    img {
+      max-width: 200px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #444;
+    }
+    th {
+      background-color: #330033;
+      color: #9dff5b;
+    }
+    tr:nth-child(even) {
+      background-color: #220022;
+    }
+    a {
+      color: #9dff5b;
+      text-decoration: none;
+    }
+    .csv-btn {
+      background: #9dff5b;
+      color: #000;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <h1><img src="innfernogifs.gif" alt="Innfernos Dragon" /><br>INNFERNOS Leaderboard</h1>
+  <p>Top holders of template ID <strong>895730</strong></p>
+  <button class="csv-btn" onclick="downloadCSV()">Download CSV</button>
+  <table id="leaderboard">
+    <thead>
+      <tr><th>Rank</th><th>Wallet</th><th>Innfernos Held</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="leaderboard.js"></script>
+</body>
+</html>
