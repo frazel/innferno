@@ -1,65 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>INNFERNOS Leaderboard</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Innfernos NFT Leaderboard + Roadmap</title>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
   <style>
-    body {
-      background-color: #1a001a;
-      color: #e6e6e6;
-      font-family: Arial, sans-serif;
+    html, body {
+      margin: 0;
+      font-family: 'Luckiest Guy', cursive;
+      color: #fff;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      background: radial-gradient(#190019, #0c0016);
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDR6eGg4cXJobGY0MHllZHJhcnBpaTBzY2FrNGVieTM0bjVpN2xydSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rns9XL5RzNsdhcuy3v/giphy.gif') repeat;
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: 0;
+    }
+    header, footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    header h1 {
+      font-size: 3rem;
+      color: #f770ff;
+      text-shadow: 2px 2px 4px #000;
+    }
+    header img {
+      width: 120px;
+      margin-bottom: 1rem;
+    }
+    main {
+      position: relative;
+      z-index: 1;
       padding: 2rem;
       text-align: center;
     }
-    h1 {
-      color: #9dff5b;
+    section {
+      margin-bottom: 3rem;
     }
-    img {
-      max-width: 200px;
+    #leaderboard-list {
+      max-width: 700px;
+      margin: 2rem auto;
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      background-color: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 2rem;
-    }
-    th, td {
-      padding: 12px;
-      border-bottom: 1px solid #444;
-    }
-    th {
-      background-color: #330033;
-      color: #9dff5b;
-    }
-    tr:nth-child(even) {
-      background-color: #220022;
+    #leaderboard-list li {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     a {
-      color: #9dff5b;
+      color: #ffd5ec;
       text-decoration: none;
     }
-    .csv-btn {
-      background: #9dff5b;
+    a:hover {
+      text-decoration: underline;
+    }
+    .download-btn {
+      background: #f770ff;
       color: #000;
-      padding: 0.5rem 1rem;
-      margin-top: 1rem;
-      cursor: pointer;
-      font-weight: bold;
+      padding: 10px 20px;
       border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+    .download-btn:hover {
+      background: #ffb4fa;
+    }
+    .roadmap {
+      text-align: left;
+      max-width: 800px;
+      margin: auto;
+      background: rgba(0,0,0,0.6);
+      padding: 2rem;
+      border-radius: 16px;
+    }
+    .roadmap h2 {
+      color: #ff80f7;
+      margin-top: 2rem;
     }
   </style>
 </head>
 <body>
-  <h1><img src="innfernogifs.gif" alt="Innfernos Dragon" /><br>INNFERNOS Leaderboard</h1>
-  <p>Top holders of template ID <strong>895730</strong></p>
-  <button class="csv-btn" onclick="downloadCSV()">Download CSV</button>
-  <table id="leaderboard">
-    <thead>
-      <tr><th>Rank</th><th>Wallet</th><th>Innfernos Held</th></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+  <header>
+    <img src="https://i.imgur.com/Xveg60R.png" alt="Innferno Logo">
+    <h1>🔥 INNFERNOS NFT HUB 🔥</h1>
+    <p><a href="https://neftyblocks.com/collection/inn/blends">Inn</a> • <a href="https://neftyblocks.com/collection/hyperhuskyyy">Hyper Husky</a> • <a href="https://neftyblocks.com/collection/madallisonft">Mad Allison</a></p>
+    <p>Join our <a href="https://discord.gg/cEkJyyK">Discord</a> for egg roles & events!</p>
+  </header>
 
-  <script src="leaderboard.js"></script>
+  <main>
+    <section id="leaderboard">
+      <h2>Top 100 Inn Holders</h2>
+      <button class="download-btn" onclick="downloadCSV()">📥 Download CSV</button>
+      <ol id="leaderboard-list"><li>Loading leaderboard...</li></ol>
+    </section>
+
+    <section class="roadmap">
+      <h2>INNFERNOS MASTERPLAN</h2>
+      <p><strong>PHASE 0: Forging the Flame</strong><br>
+        ✅ 10,000 Innfernos PFPs locked<br>
+        ✅ Egg NFTs created<br>
+        ✅ Whitelist snapshot & drop setup complete</p>
+
+      <p><strong>PHASE 1: The Great Egg Drop</strong><br>
+        250 Eggs per wave x 10 waves — 20 WAX each<br>
+        Whitelist: 1 NFT from Inn, HyperHuskyyy, or MadAllisonFT<br>
+        Eggs hatch when 500 are sold or July 4, 2025</p>
+
+      <p><strong>PHASE 2: The Hatching Ritual</strong><br>
+        Weekend hatches open<br>
+        Rare Trait Leaderboard live on Twitch<br>
+        Traits get rewards & live rolls</p>
+
+      <p><strong>PHASE 3: Breeding & Season 2 Eggs</strong><br>
+        Season 2 = 2,500 eggs @ 15 WAX<br>
+        Bonus eggs for top holders & council members</p>
+
+      <p><strong>PHASE 4: Vault & Holder Bonuses</strong><br>
+        Holder Leaderboard + Vault votes<br>
+        Role bonuses: 1+ = Initiate, 25+ = Tamer, 50+ = Innvestor, 100+ = Keeper</p>
+
+      <p><strong>PHASE 5–6: Expansion & Evolution</strong><br>
+        Season 3 planning by Dragon Council<br>
+        Final phase = FREE drop to all Innferno holders</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built with 💜 by Frazel | <a href="https://discord.gg/cEkJyyK" target="_blank">Join the Inn</a></p>
+  </footer>
+
+  <script>
+    const blacklist = ["waxdaofarmer", "blend.nefty", "swap.taco", "scurvybot.gm", "neftyblocksp"];
+    let leaderboardData = [];
+
+    async function fetchLeaderboard() {
+      const res = await fetch('https://wax.api.atomicassets.io/atomicassets/v1/accounts?collection_name=inn&limit=1000');
+      const data = await res.json();
+
+      const sorted = data.data
+        .filter(entry => entry.account && entry.assets > 0 && !blacklist.includes(entry.account))
+        .sort((a, b) => b.assets - a.assets)
+        .slice(0, 100);
+
+      leaderboardData = sorted;
+
+      const list = document.getElementById('leaderboard-list');
+      list.innerHTML = '';
+
+      sorted.forEach((entry, index) => {
+        const li = document.createElement('li');
+        const medal = index === 0 ? '👑 ' : index === 1 ? '🥈 ' : index === 2 ? '🥉 ' : '';
+        const link = `https://wax.atomichub.io/profile/${entry.account}`;
+        li.innerHTML = `${medal}#${index + 1} - <a href="${link}" target="_blank">${entry.account}</a> (${entry.assets} NFTs)`;
+        list.appendChild(li);
+      });
+    }
+
+    function downloadCSV() {
+      let csv = 'Rank,Wallet,NFT Count\n';
+      leaderboardData.forEach((entry, index) => {
+        csv += `${index + 1},${entry.account},${entry.assets}\n`;
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'inn_leaderboard.csv';
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    fetchLeaderboard();
+  </script>
 </body>
 </html>
